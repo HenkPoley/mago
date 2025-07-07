@@ -731,7 +731,12 @@ impl<'a, 'i> Lexer<'a, 'i> {
                         let mut token_kind = TokenKind::StringPart;
                         loop {
                             match self.input.peek(length, 2) {
-                                [b'\n', ..] => {
+                                [b'\r', b'\n'] => {
+                                    length += 2;
+
+                                    break;
+                                }
+                                [b'\n', ..] | [b'\r', ..] => {
                                     length += 1;
 
                                     break;
