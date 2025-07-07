@@ -1,2 +1,3 @@
 * text=auto eol=lf
+crates/formatter/tests/cases/issue_225/before.php -text
 stubs/** linguist-vendored
